@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Button, Typography } from "@mui/material";
 
 const Hero = () => {
   return (
