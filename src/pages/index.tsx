@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Hero from "../components/Hero";
 import { APIContextProvider } from "../context";
 import CardStudentTotal from "../components/CardStudentTotal";
+import CardCuotasPagadas from "../components/CardCuotasPagadas";
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
       <Hero />
       <Container maxWidth="md">
         <CardStudentTotal />
+        <CardCuotasPagadas />
       </Container>
     </APIContextProvider>
   );

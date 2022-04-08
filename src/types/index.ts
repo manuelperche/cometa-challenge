@@ -38,6 +38,7 @@ export interface StudentOrder {
   pending: boolean;
   payin: {
     id: string;
+    status: string;
     created: string;
   }
 }
