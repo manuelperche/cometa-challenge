@@ -3,6 +3,7 @@ import Head from "next/head";
 import Container from "@mui/material/Container";
 import Hero from "../components/Hero";
 import { APIContextProvider } from "../context";
+import CardStudentTotal from "../components/CardStudentTotal";
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +14,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
-      <Container maxWidth="md"></Container>
+      <Container maxWidth="md">
+        <CardStudentTotal />
+      </Container>
     </APIContextProvider>
   );
 };
