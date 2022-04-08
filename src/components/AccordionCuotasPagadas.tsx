@@ -8,10 +8,12 @@ type Props = {
   name: string;
   payDate: Date;
   dueDate: Date;
+  price: string;
   interest: string;
 };
 
-const AccordionCuotasPagadas = ({ id, name, payDate, dueDate, interest } : Props) => {
+const AccordionCuotasPagadas = ({ id, name, payDate, dueDate, interest, price }: Props) => {
+  const fullPrice = parseFloat(price) + parseFloat(interest);
   return (
     <Accordion key={id}>
       <AccordionSummary expandIcon={<ArrowForwardIosSharpIcon />} aria-controls="panel1a-content" id="panel1a-header">
@@ -37,7 +39,7 @@ const AccordionCuotasPagadas = ({ id, name, payDate, dueDate, interest } : Props
           </Grid>
           <Grid item xs={6}>
             <Typography variant="body2" component="p" textAlign="start">
-              {`Intereses: $${interest}`}
+              {`Pago: $${fullPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
             </Typography>
           </Grid>
         </Grid>

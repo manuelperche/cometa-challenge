@@ -23,7 +23,7 @@ const lightThemeOptions: ThemeOptions = {
     },
     body2: {
       fontWeight: 300,
-      fontSize: "11px"
+      fontSize: "11px",
     },
   },
   components: {
@@ -45,6 +45,19 @@ const lightThemeOptions: ThemeOptions = {
         expandIconWrapper: {
           color: "#A9A9A9",
         },
+      },
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          color: "#313131",
+          fontSize: 25,
+          '&.Mui-checked': {
+            color: "#333",
+          },
+      
+        },
+        
       },
     },
   },

@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import { APIContextProvider } from "../context";
 import CardStudentTotal from "../components/CardStudentTotal";
 import CardCuotasPagadas from "../components/CardCuotasPagadas";
+import CardCuotasPendientes from "../components/CardCuotasPendientes";
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
       <Container maxWidth="md">
         <CardStudentTotal />
         <CardCuotasPagadas />
+        <CardCuotasPendientes />
       </Container>
     </APIContextProvider>
   );

@@ -2,9 +2,9 @@ import React from "react";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Grid, Typography } from "@mui/material";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import { useOrders } from "../context";
-import AccordionCuotasPagadas from "./AccordionCuotasPagadas";
+import CuotasPendientesRow from "./CuotasPendientesRow";
 
-const CardCuotasPagadas = () => {
+const CardCuotasPendientes = () => {
   const { orders } = useOrders();
   return (
     <Box sx={{ my: "15px" }}>
@@ -13,23 +13,17 @@ const CardCuotasPagadas = () => {
           <Grid container>
             <Grid item xs={12}>
               <Typography variant="subtitle2" component="p">
-                Cuotas pagadas
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="body2" component="p" sx={{ fontSize: "11px", color: "#979797", my: "2px" }}>
-                Dale click para expandir
+                Cuotas pendientes
               </Typography>
             </Grid>
           </Grid>
         </AccordionSummary>
         <AccordionDetails sx={{ p: 0 }}>
           {orders.map((order) => {
-            if (order.status === "PAID") {
+            if (order.status === "DUE") {
               const dueDate = new Date(order.due);
-              const payDate = new Date(order.payin.created);
               return (
-                <AccordionCuotasPagadas id={order.id} name={order.name} dueDate={dueDate} payDate={payDate} interest={order.interest} price={order.price} /> 
+                <CuotasPendientesRow id={order.id} name={order.name} dueDate={dueDate} interest={order.interest} price={order.price} /> 
               );
             }
           })}
@@ -39,4 +33,4 @@ const CardCuotasPagadas = () => {
   );
 };
 
-export default CardCuotasPagadas;
+export default CardCuotasPendientes;
