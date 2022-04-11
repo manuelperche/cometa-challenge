@@ -26,7 +26,18 @@ const Home: NextPage = () => {
               <CardCuotasPagadas />
               <CardCuotasPendientes type="pendientes" />
               <CardCuotasPendientes type="futuras" />
-              <Button type="submit" onClick={() => console.log(values)} >TEST</Button>
+              {values.checked.length > 0 && (
+                <Container sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{ maxWidth: "320px", maxHeight: "50px", minWidth: "320px", minHeight: "50px" }}
+                    onClick={() => console.log(values.checked.length)}
+                  >
+                    IR A PAGAR
+                  </Button>
+                </Container>
+              )}
             </Container>
           </>
         )}

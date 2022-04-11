@@ -11,6 +11,7 @@ interface Props {
 const CardCuotasPendientes = (props: Props) => {
   const { type } = props;
   const { orders } = useOrders();
+  const filteredOrders = orders.filter((order) => order.status === "DUE" || order.status === "OUTSTANDING");
   return (
     <Box sx={{ my: "15px" }}>
       <Accordion>
@@ -24,10 +25,12 @@ const CardCuotasPendientes = (props: Props) => {
           </Grid>
         </AccordionSummary>
         <AccordionDetails sx={{ p: 0 }}>
-          {orders.map((order, index, arr) => {
+          {filteredOrders.map((order, index, arr) => {
             if (type === "pendientes" ? order.status === "DUE" : order.status === "OUTSTANDING") {
               const dueDate = new Date(order.due);
-              return <CuotasPendientesRow id={order.id} name={order.name} dueDate={dueDate} interest={order.interest} price={order.price} />;
+              return (
+                <CuotasPendientesRow id={order.id} name={order.name} dueDate={dueDate} interest={order.interest} price={order.price} index={index} />
+              );
             }
           })}
         </AccordionDetails>

@@ -9,9 +9,10 @@ type Props = {
   dueDate: Date;
   price: string;
   interest: string;
+  index: number;
 };
 
-const CuotasPendientesRow = ({ id, name, dueDate, interest, price }: Props) => {
+const CuotasPendientesRow = ({ id, name, dueDate, interest, price, index }: Props) => {
   let totalPay = parseFloat(price);
   if (interest) {
     totalPay += parseFloat(interest);
@@ -57,7 +58,7 @@ const CuotasPendientesRow = ({ id, name, dueDate, interest, price }: Props) => {
             </Grid>
           </Grid>
           <Grid item xs={1}>
-            <FormikCheckbox name="checked" type="checkbox" value={id} />
+            <FormikCheckbox name="checked" type="checkbox" value={id} index={index}/>
           </Grid>
         </Grid>
       </Paper>

@@ -5,10 +5,10 @@ const lightThemeOptions: ThemeOptions = {
     background: {
       default: "#F7F7F7",
     },
-    // text: {
-    //   default: "#FFF"
-    // },
     mode: "light",
+    primary: {
+      main: "#333"
+    }
   },
   typography: {
     h6: {
@@ -27,6 +27,13 @@ const lightThemeOptions: ThemeOptions = {
     },
   },
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 25
+        }
+      }
+    },
     MuiAccordion: {
       styleOverrides: {
         root: {
