@@ -46,6 +46,4 @@ export interface StudentOrder {
 export interface StudentContextType { 
   student: StudentInfo | null;
   orders: StudentOrder[];
-  loading: boolean;
-  error: any;
 }

@@ -13,7 +13,10 @@ type Props = {
 };
 
 const AccordionCuotasPagadas = ({ id, name, payDate, dueDate, interest, price }: Props) => {
-  const fullPrice = parseFloat(price) + parseFloat(interest);
+  let fullPrice = parseFloat(price);
+  if (interest) {
+    fullPrice += parseFloat(interest);
+  }
   return (
     <Accordion key={id}>
       <AccordionSummary expandIcon={<ArrowForwardIosSharpIcon />} aria-controls="panel1a-content" id="panel1a-header">

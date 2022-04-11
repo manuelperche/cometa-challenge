@@ -4,7 +4,12 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import { useOrders } from "../context";
 import CuotasPendientesRow from "./CuotasPendientesRow";
 
-const CardCuotasPendientes = () => {
+interface Props {
+  type: "pendientes" | "futuras";
+}
+
+const CardCuotasPendientes = (props: Props) => {
+  const { type } = props;
   const { orders } = useOrders();
   return (
     <Box sx={{ my: "15px" }}>
@@ -13,18 +18,16 @@ const CardCuotasPendientes = () => {
           <Grid container>
             <Grid item xs={12}>
               <Typography variant="subtitle2" component="p">
-                Cuotas pendientes
+                {type === "pendientes" ? "Cuotas pendientes" : "Cuotas futuras"}
               </Typography>
             </Grid>
           </Grid>
         </AccordionSummary>
         <AccordionDetails sx={{ p: 0 }}>
-          {orders.map((order) => {
-            if (order.status === "DUE") {
+          {orders.map((order, index, arr) => {
+            if (type === "pendientes" ? order.status === "DUE" : order.status === "OUTSTANDING") {
               const dueDate = new Date(order.due);
-              return (
-                <CuotasPendientesRow id={order.id} name={order.name} dueDate={dueDate} interest={order.interest} price={order.price} /> 
-              );
+              return <CuotasPendientesRow id={order.id} name={order.name} dueDate={dueDate} interest={order.interest} price={order.price} />;
             }
           })}
         </AccordionDetails>
