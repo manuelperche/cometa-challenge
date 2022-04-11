@@ -12,7 +12,7 @@ import { Button } from "@mui/material";
 const Home: NextPage = () => {
   return (
     <APIContextProvider>
-      <Formik initialValues={{ checked: [] }} onSubmit={(values) => console.log("test")}>
+      <Formik initialValues={{ checked: [] }} onSubmit={(values) => console.log("Finished")}>
         {({ handleSubmit, values }) => (
           <>
             <Head>
@@ -26,19 +26,19 @@ const Home: NextPage = () => {
               <CardCuotasPagadas />
               <CardCuotasPendientes type="pendientes" />
               <CardCuotasPendientes type="futuras" />
-              {values.checked.length > 0 && (
-                <Container sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    sx={{ maxWidth: "320px", maxHeight: "50px", minWidth: "320px", minHeight: "50px" }}
-                    onClick={() => console.log(values.checked.length)}
-                  >
-                    IR A PAGAR
-                  </Button>
-                </Container>
-              )}
             </Container>
+            {values.checked.length > 0 && (
+              <Container maxWidth="md" sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{ maxWidth: "320px", maxHeight: "50px", minWidth: "320px", minHeight: "50px", position: "fixed", bottom: "30px" }}
+                  onClick={() => handleSubmit()}
+                >
+                  IR A PAGAR
+                </Button>
+              </Container>
+            )}
           </>
         )}
       </Formik>

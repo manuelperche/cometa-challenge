@@ -23,7 +23,7 @@ const CardCuotasPagadas = () => {
             </Grid>
           </Grid>
         </AccordionSummary>
-        <AccordionDetails sx={{ p: 0 }}>
+        <AccordionDetails sx={{ p: 0, paddingBottom: "10px" }}>
           {orders.map((order) => {
             if (order.status === "PAID") {
               const dueDate = new Date(order.due);
