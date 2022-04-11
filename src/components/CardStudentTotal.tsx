@@ -41,7 +41,7 @@ const CardStudentTotal = () => {
         </Grid>
         <Grid item xs={6}>
           <Typography variant="h6" component="p" textAlign="end">
-            {`$ ${total == 0 ? "---" : total}`}
+            {`$ ${total === "0" ? "---" : total}`}
           </Typography>
         </Grid>
       </Grid>
